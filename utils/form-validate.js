@@ -11,7 +11,7 @@ export const usernameValidate = {
       value: /^[a-zA-Z0-9]+$/,
       message: "Username must be alphanumeric",
     },
-  };
+  }; 
   
   export const emailValidate = {
     required: {

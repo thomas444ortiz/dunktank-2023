@@ -7,7 +7,7 @@ import { useToast } from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
 import { setDoc, doc, getDoc } from "firebase/firestore"
 import { isUsernameExist } from "../utils/isUsernameExist"
-
+ 
 
 export function useAuth(){
     const [authUser, authLoading, error] = useAuthState(auth);

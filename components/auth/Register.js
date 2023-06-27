@@ -22,7 +22,7 @@ export default function Register(){
     <Center w="100%" h="100vh">
         <Box mx="1" maxW="md" p = "9" borderWidth = "1px" borderRadius = "lg">
             <Heading mb="4" size="lg" textAlign="center">Register Below</Heading>
-            
+             
             <form onSubmit={handleSubmit(handleRegister)}>
             <FormControl isInvalid={errors.username} py = "2">
                     <FormLabel>Username</FormLabel>

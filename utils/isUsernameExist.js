@@ -5,4 +5,4 @@ export async function isUsernameExist (username) {
     const q = query(collection(db, "users"), where("username","==", username));
     const querySnapshot = await getDocs(q);
     return querySnapshot.size > 0;
-}
+} 
