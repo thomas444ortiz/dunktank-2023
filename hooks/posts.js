@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { doc, setDoc, query, collection, orderBy, updateDoc, arrayRemove, arrayUnion } from "firebase/firestore";
+import { doc, setDoc, query, collection, orderBy, updateDoc, arrayRemove, arrayUnion, deleteDoc } from "firebase/firestore";
 import { uuidv4 } from "@firebase/util";
 import { db } from "../lib/firebase"
 import { useToast } from "@chakra-ui/react";
@@ -43,4 +43,28 @@ export function useToggleLike ({id, isLiked, uid}) {
         setLoading(false);
     }
     return{ toggleLike, isLoading}
+}
+
+export function useDeletePost(id){
+    const [isLoading, setLoading] = useState(false);
+    const toast = useToast();
+
+    async function deletePost(){
+        const res = window.confirm("Are you sure you want to delete this post?");
+        if (res) {
+            setLoading(true)
+            await deleteDoc(doc(db,"posts",id));
+            
+            toast({
+                title: "Post deleted!",
+                status: "info",
+                isClosable: true,
+                position: "top",
+                duration: 5000,
+            });
+
+            setLoading(false)
+        }
+    }
+    return { deletePost, isLoading };
 }
