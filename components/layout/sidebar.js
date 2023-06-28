@@ -18,6 +18,7 @@ function ActiveUser(){
                 to={`${PROTECTED}/PROFILE/${user.id}`} 
                 colorScheme="Blue.300"
                 w="full"
+                bg="blue.800"
             >
                 Edit Profile
             </Button>
@@ -45,11 +46,12 @@ export default function Sidebar(){
             <Box as = "ul" borderBottom = "2px solid" borderColor="gray.500" />
             <Button
                 variant="outline"
-                colorScheme="tea;"
                 as={RouteLink}
                 to={USERS}
                 mt="4"
-                size="sm"  
+                size="md"  
+                bg="blue.800"
+                color="white"
             >
                 ALL USERS
             </Button>

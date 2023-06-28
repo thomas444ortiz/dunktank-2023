@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { doc, setDoc, query, collection, orderBy, updateDoc, arrayRemove, arrayUnion, deleteDoc, getDoc, where } from "firebase/firestore";
+import { doc, setDoc, query, collection, orderBy, updateDoc, arrayRemove, arrayUnion, deleteDoc, getDoc, where, increment } from "firebase/firestore";
 import { uuidv4 } from "@firebase/util";
 import { db } from "../lib/firebase"
 import { useToast } from "@chakra-ui/react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import { useAuth } from "../hooks/auth";
 
 export function useAddPost(){
     const [isLoading, setLoading] = useState(false);
@@ -57,13 +58,18 @@ export function useAttemptDunk ({id}) {
     const [isLoading, setLoading] = useState(false);
     const toast = useToast();
     const probability = 5;
-  
+    //Need to get the user object
+    const { user } = useAuth();
+
     async function attemptDunk() {
       setLoading(true);
       const docRef = doc(db, "posts", id);
       const docSnap = await getDoc(docRef);
       const isDunked = docSnap.data()?.isDunked;
-  
+      //Need to declare a variable that will store the database address of users
+      const docRefUsers = doc(db, "users", user.id)
+      console.log(docRefUsers);
+
       if (isDunked === true) {
         setLoading(false);
         return;
@@ -75,6 +81,11 @@ export function useAttemptDunk ({id}) {
           isDunked: true,
         });
       }
+      //Need to update the balls number for the user in the database to be equal to 73
+      await updateDoc(docRefUsers,{
+        balls: increment(-1)
+      })
+
       toast({
         title: randomNumber === 1 ? "Your dunk attempt was successful" : `Your dunk attempt was not successful (you have a 1 in ${probability} chance)`,
         status: "success",

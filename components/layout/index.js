@@ -23,13 +23,13 @@ export default function Layout(){
     return(
         <>
             <Navbar />
-            <Flex pt="16" pd="12" mx = "auto" w="full" maxW = "1200px">
-                <Box w="900px">
+            <Flex pt="16" pd="12" mx = "auto" w="full" maxW = "2000px">
+                <Box w="1200px">
                     <Outlet />       
                 </Box>           
                 <Sidebar />
             </Flex>
 
         </>
-    )
+    );
 }

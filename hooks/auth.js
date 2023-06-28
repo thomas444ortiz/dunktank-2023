@@ -57,6 +57,7 @@ export function useRegister(){
     const [isLoading, setLoading] = useState(false);
     const toast = useToast();
     const navigate = useNavigate();
+    const startingBalls = 10;
 
     async function register({username, email, password, redirectTo = DASHBOARD})
     
@@ -84,6 +85,7 @@ export function useRegister(){
                     username: username.toLowerCase(),
                     avatar: "",
                     date: Date.now(),
+                    balls: startingBalls
                 });
                 toast({
                     title: "Account created",

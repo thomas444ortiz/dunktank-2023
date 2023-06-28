@@ -36,6 +36,11 @@ export default function Profile(){
                             Joined: {format(user.date, "MMMM yyyy")}
                         </Text>                      
                     </HStack>
+                    <HStack mt="10">
+                        <Text>
+                            Number of balls available: {user.balls}
+                        </Text>
+                    </HStack>
                 </Stack>
 
                 <EditProfile isOpen={isOpen} onClose={onClose} />
