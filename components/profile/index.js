@@ -28,36 +28,39 @@ export default function Profile(){
                     Change Avatar
                 </Button>)}
 
-                <Stack ml="10">
-                    <Text fontSize="2xl">{user.username}</Text>
+                <Stack ml="8">
+                    <Text fontSize="2xl" bg="lightblue" borderRadius="md" display="inline-block" px="2" fontWeight="bold">
+                        @{user.username}
+                    </Text>
                     <HStack spacing = "10">
                         <Text fontSize={["sm", "lg"]}>
-                            Posts (that have been dunked): {posts.length}
-                        </Text>
+                            Exposed Posts: {posts.length}
+                        </Text>                  
+                    </HStack>
+                    <HStack spacing = "10">
                         <Text fontSize={["sm", "lg"]}>
                             Joined: {format(user.date, "MMMM yyyy")}
                         </Text>                      
                     </HStack>
-                    <HStack mt="10">
-                        <Text fontSize="lg">
+                    <Box border="2px" borderColor="gray.500" bg="gray.100" p="2" rounded="md">
+                        <Text fontSize="lg" mb="1">
                             Number of balls available: {user.balls}
                         </Text>
-                        <Button
-                            ml="5px"
+                        {!authLoading && authUser.id === user.id && (
+                            <Button
                             bg="blue.800"
                             color="white"
                             onClick={addBalls}
                             isLoading={ballsLoading}
-                        >
+                            mt="1"
+                            >
                             Get more balls (5 per click)
-                        </Button>
-                    </HStack>
+                            </Button>)}
+                    </Box>
                 </Stack>
-
                 <EditProfile isOpen={isOpen} onClose={onClose} />
-
             </Flex>
-            <Divider />
+            <Divider mx="auto" w="99%" borderColor="gray.600" ml="1%"/>
             <Box
                 display="flex"
                 justifyContent="center"

@@ -66,11 +66,11 @@ export default function Homepage() {
             </Text>
             <Text>
             <UnorderedList>
+                    <ListItem>Make the UI better (its really bad on mobile especially)</ListItem>                      
                     <ListItem>Require email (and possibly phone number or other) authentication</ListItem>
                     <ListItem>Creat some sort of content moderation functionality for posts (its the wild west right now)
                     , as well as the ability to report posts and ban users</ListItem>
                     <ListItem>Add in comments on the posts</ListItem>   
-                    <ListItem>Make the UI better</ListItem>    
                     <ListItem>Make a sharing feature to increase virality</ListItem>    
                     <ListItem>Make it so that there is more than one feed (either friend networks, location based, or chatroom style) </ListItem>           
                     <ListItem>Add in functionality to delete your account</ListItem>
