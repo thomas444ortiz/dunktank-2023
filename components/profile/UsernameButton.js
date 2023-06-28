@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import { PROTECTED } from "../../lib/routes";
 
 
-export default function UsernameButton({user}){
+export default function UsernameButton({user, isDunked}){
     
     return (
         <Button
@@ -11,7 +11,7 @@ export default function UsernameButton({user}){
         to={`${PROTECTED}/profile/${user.id}`}
         colorScheme="teal"
         variant="link"
-        >{user.username}
+        >{isDunked ? (user.username) : "Anonymous"}
         </Button>
     )
 }

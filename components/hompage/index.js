@@ -68,7 +68,7 @@ export default function Homepage() {
             </Text>
             <Text>
                 DunkTank Social is a social media app where you post anonomously to a forum, and users can try to "Dunk" you, 
-                by clicking on the Softball icon, which has a 1/3 chance of showing your username to everyone. Click on the navbar above 
+                by clicking on the Softball icon, which has a 1/5 chance of showing your username to everyone. Click on the navbar above 
                 to login or register.
             </Text>
             <Text mt="4">
@@ -106,8 +106,8 @@ export default function Homepage() {
             <Text mt="4">
                 From there, I just winged it. Here are the original features I built in:    
                 <UnorderedList>
-                    <ListItem>Made posts anonomous, with the functionality to "Dunk" someone</ListItem>
-                    <ListItem>Overall Design </ListItem>   
+                    <ListItem>Made posts anonomous by default, with the functionality to "Dunk" someone</ListItem>
+                    <ListItem>Overall Design</ListItem>   
                 </UnorderedList>         
             </Text>   
 

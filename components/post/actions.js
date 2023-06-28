@@ -1,15 +1,17 @@
 import { Flex, IconButton } from "@chakra-ui/react";
-import { FaRegHeart, FaHeart, FaBaseballBall, FaTrashAlt } from "react-icons/fa";
+import { FaRegHeart, FaHeart, FaBaseballBall, FaTrashAlt} from "react-icons/fa";
+import { GiWaterSplash } from "react-icons/gi";
 import { useAuth } from "../../hooks/auth";
-import { useToggleLike, useDeletePost } from "../../hooks/posts";
+import { useToggleLike, useDeletePost, useAttemptDunk } from "../../hooks/posts";
 
 export default function Actions({post}){
-    const {id, likes, uid} = post;
+    const {id, likes, uid, isDunked} = post;
     const {user, isLoading: userLoading } = useAuth();
-    const isLiked = likes.includes(user?.id);    
+    const isLiked = likes.includes(user?.id);  
     const config = {id, isLiked, uid: user?.id,};
     const {toggleLike, isLoading: likeLoading} = useToggleLike(config); 
     const {deletePost, isLoading: deleteLoading} = useDeletePost(id);
+    const {attemptDunk, isLoading: dunkLoading} = useAttemptDunk({id});
 
     return (
         <Flex p="2">
@@ -26,10 +28,12 @@ export default function Actions({post}){
                 {likes.length}
             </Flex>
                 <IconButton 
-                    size="md" 
-                    colorScheme="yellow" 
+                    onClick={attemptDunk}
+                    isLoading={dunkLoading || userLoading}
+                    size="lg" 
+                    colorScheme={isDunked ? "blue" : "yellow"}
                     variant="ghost" 
-                    icon={<FaBaseballBall/>}
+                    icon={isDunked ? <GiWaterSplash/> : <FaBaseballBall/>}
                     isRound
                 />
                 

@@ -3,7 +3,7 @@ import  TextareaAutosize  from "react-textarea-autosize";
 import { useForm } from "react-hook-form";
 import { useAddPost } from "../../hooks/posts";
 import  { useAuth }  from "../../hooks/auth";
-import  PostLists  from "../post/Posts.Lists";
+import  PostLists  from "../post/PostsLists";
 import { usePosts } from "../../hooks/posts";
 
 function NewPost(){

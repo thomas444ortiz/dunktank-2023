@@ -5,7 +5,7 @@ import { formatDistanceToNow } from "date-fns";
 import UsernameButton from "../profile/UsernameButton";
 
 export default function Header({ post }){
-    const { uid, date } = post;
+    const { uid, date, isDunked } = post;
     const {user, isLoading} = useUser(uid);
 
     if (isLoading) return "Loading...";
@@ -18,10 +18,10 @@ export default function Header({ post }){
             p="3"
             bg="gray.50"
         >
-            <Avatar size="sm" user={user} />
+            <Avatar size="sm" user={user} isDunked={isDunked} />
             
             <Box ml="4">
-                <UsernameButton user={user} />
+                <UsernameButton user={user} isDunked={isDunked} />
                 <Text fontSize="sm" color="gray.500">
                     {formatDistanceToNow(date)} ago
                 </Text>
