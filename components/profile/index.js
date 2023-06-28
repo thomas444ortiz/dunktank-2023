@@ -1,4 +1,4 @@
-import { Divider, Flex, HStack, Stack, Text, Button, useDisclosure } from "@chakra-ui/react";
+import { Divider, Flex, HStack, Stack, Text, Button, useDisclosure, Box } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import PostsLists from "../post/PostsLists";
 import { usePosts } from "../../hooks/posts";
@@ -30,7 +30,7 @@ export default function Profile(){
                     <Text fontSize="2xl">{user.username}</Text>
                     <HStack spacing = "10">
                         <Text color="gray.700" fontSize={["sm", "lg"]}>
-                            Posts: {posts.length}
+                            Posts (that have been dunked): {posts.length}
                         </Text>
                         <Text color="gray.700" fontSize={["sm", "lg"]}>
                             Joined: {format(user.date, "MMMM yyyy")}
@@ -42,6 +42,22 @@ export default function Profile(){
 
             </Flex>
             <Divider />
+            <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                backgroundColor="lightblue"
+                color="black"
+                fontWeight="bold"
+                p={4}
+                borderRadius="md"
+                border="1px solid gray"
+                width="90%"
+                maxH="20px"
+                marginX="auto"
+            >
+                <Text>Posts that have been dunked are below:</Text>
+            </Box>
             {postsLoading ? (
                 <Text>Posts are loading...</Text>
             ) : (

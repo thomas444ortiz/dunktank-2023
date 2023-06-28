@@ -21,7 +21,7 @@ export default function Login(){
     return (
     <>
     <Navbar />
-        <Center w="100%" h="100vh">
+        <Center w="100%" h="85vh">
             <Box mx="1" maxW="md" p = "9" borderWidth = "1px" borderRadius = "lg">
                 <Heading mb="4" size="lg" textAlign="center">Log In Below</Heading>
                 

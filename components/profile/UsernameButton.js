@@ -6,12 +6,8 @@ import { PROTECTED } from "../../lib/routes";
 export default function UsernameButton({user, isDunked}){
     
     return (
-        <Button
-        as={Link}
-        to={`${PROTECTED}/profile/${user.id}`}
-        colorScheme="teal"
-        variant="link"
-        >{isDunked ? (user.username) : "Anonymous"}
+        <Button as={isDunked && Link} to={isDunked && `${PROTECTED}/profile/${user.id}`} colorScheme="teal" variant="link">
+          {isDunked ? user.username : "Anonymous"}
         </Button>
-    )
+      );
 }
