@@ -74,6 +74,19 @@ export function useAttemptDunk ({id}) {
         setLoading(false);
         return;
       }
+
+      // Check if the user has at least one ball
+      if (user.balls < 1) {
+        setLoading(false);
+        toast({
+          title: "You don't have enough balls; get more by navigating to your user profile page.",
+          status: "error",
+          isClosable: true,
+          position: "top",
+          duration: 5000
+        });
+        return;
+      }
   
       const randomNumber = Math.floor(Math.random() * probability);
       if (randomNumber === 1) {

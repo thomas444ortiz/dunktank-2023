@@ -46,14 +46,17 @@ export default function Homepage() {
                 >
                      tutorial,
                 </Link>
-                {" "} and stopped about three hours in once I had enough of a base to make the project my own.
+                {" "} as a base for my app.
             </Text>
             <Text mt="4">
-                From there, I just winged it. Here are the original features I built in:    
+                From there, I just winged it to make it my own. Here are the original features I built in:    
                 <UnorderedList>
-                    <ListItem>Made posts anonomous by default, with the functionality to "Dunk" someone</ListItem>
-                    <ListItem>Overall Design</ListItem>   
-                </UnorderedList>         
+                    <ListItem>Made posts anonomous by default.</ListItem>
+                    <ListItem>Built in functionality to dunk someone, to expose the username on their anonomous post.</ListItem>   
+                    <ListItem>Built in a number of balls (attempts at dunking others) for each account, and added a button to get more (would eventually on be paid), as well as a feature to make sure you have enough balls to dunk someone.</ListItem>   
+                    <ListItem>Disable links to user profile page on anonymous posts, and only show exposed posts when you click on a user profile through the all users page.</ListItem>       
+                    <ListItem>Customized the UI including some disclaimers, adding an about page and a navbar.</ListItem>   
+                </UnorderedList>    
             </Text>   
 
             </Box>
@@ -67,7 +70,9 @@ export default function Homepage() {
                     <ListItem>Creat some sort of content moderation functionality for posts (its the wild west right now)
                     , as well as the ability to report posts and ban users</ListItem>
                     <ListItem>Add in comments on the posts</ListItem>   
-                    <ListItem>Make the UI better</ListItem>                    
+                    <ListItem>Make the UI better</ListItem>    
+                    <ListItem>Make a sharing feature to increase virality</ListItem>    
+                    <ListItem>Make it so that there is more than one feed (either friend networks, location based, or chatroom style) </ListItem>           
                     <ListItem>Add in functionality to delete your account</ListItem>
                     <ListItem>Incorporate and monetize</ListItem>
                     <ListItem>Anything else? I am open to suggestions.</ListItem>
